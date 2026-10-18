@@ -24,6 +24,22 @@ const NOTAS = {
       "Agrega aquí el cierre de la nota."
     ]
   },
+  idukay:{
+    seccion:"Cambio de plataforma", color:"", foto:"fotos/idukay.jpg",
+    titulo:"Llegó Idukay: así funciona la nueva plataforma",
+    subtitulo:"Calificaciones, tareas, avisos y pagos ahora en un solo lugar.",
+    autor:"Equipo de Redacción 3°B", fecha:"Octubre 2026",
+    cuerpo:[
+      "La escuela dejó la plataforma anterior y ahora usa Idukay. Aquí te explicamos qué cambia y cómo entrar.",
+      {h:"¿Qué puedo hacer en Idukay?"},
+      {lista:["Consultar calificaciones","Ver tareas y fechas de entrega","Recibir avisos de la escuela","Revisar pagos y colegiaturas"]},
+      {h:"Cómo entrar"},
+      {lista:["Paso 1: escribe aquí cómo descargar la app o abrir la página","Paso 2: escribe aquí qué usuario y contraseña se usan","Paso 3: escribe aquí qué hacer si olvidas tu contraseña"]},
+      {cita:"Escribe aquí la opinión de un alumno, maestro o del área de sistemas.", de:"Nombre"},
+      {h:"¿Dudas?"},
+      "Escribe aquí con quién acudir si tienes problemas para entrar."
+    ]
+  },
   direccion:{
     seccion:"Más allá de Dirección", color:"", foto:"fotos/direccion.jpg",
     titulo:"Más allá de Dirección",
@@ -128,4 +144,4 @@ const NOTAS = {
   }
 };
 /* Orden en que se navega con los botones Anterior / Siguiente */
-const ORDEN = ["examenes","direccion","redaccion","muertos","cafeteria","satira","servicio","conadeip","conarte"];
+const ORDEN = ["examenes","idukay","direccion","redaccion","muertos","cafeteria","satira","servicio","conadeip","conarte"];

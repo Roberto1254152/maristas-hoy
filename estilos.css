@@ -211,3 +211,8 @@ body.saliendo{opacity:0;transform:translateY(-8px);transition:.3s}
 .ticker span::before{content:"";display:inline-block;width:7px;height:7px;background:#1a0d00;transform:rotate(45deg);margin-right:12px;vertical-align:middle}
 .aviso::before{content:"!";display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--vino);color:#fff;font-weight:900;font-size:.8rem;margin-right:8px}
 .vineta{font-size:1rem}
+
+/* Idukay */
+.idukay{background:linear-gradient(120deg,color-mix(in srgb,var(--oro) 22%,var(--bg2)),var(--bg2) 60%)}
+.idukay .fila{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.idukay h3{font-size:1.9rem;margin-top:10px}

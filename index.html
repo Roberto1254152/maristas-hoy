@@ -25,7 +25,7 @@
           <a href="#redaccion">Redacción</a><a href="#republica">República Escolar</a>
           <a href="#cafeteria">Menú y precios</a><a href="#satira">Sátira</a>
           <a href="#calendario">Calendario</a><a href="#competencias">CONADEIP / CONARTE</a>
-          <a href="#encuesta">Encuesta</a><a href="#chismografo">Chismógrafo</a>
+          <a href="#idukay">Idukay</a><a href="#encuesta">Encuesta</a><a href="#chismografo">Chismógrafo</a>
         </div>
       </div>
       <button class="ico" id="btnPetalos" title="Pétalos" aria-label="Pétalos"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg></button>
@@ -166,6 +166,22 @@
       <p class="firma" id="totalVotos"></p>
     </section>
 
+    <!-- IDUKAY -->
+    <section class="card c12 idukay revela" id="idukay">
+      <div class="fila">
+        <div class="qr" id="qrIdukay"></div>
+        <div style="flex:1;min-width:240px">
+          <span class="etiqueta">Cambio de plataforma</span>
+          <h3>Llegó Idukay</h3>
+          <p class="p">La escuela cambió de plataforma escolar. Ahora calificaciones, tareas, avisos y pagos se consultan en Idukay. Escanea el código o entra desde el botón.</p>
+          <div class="btns">
+            <a class="btn oro" id="linkIdukay" target="_blank" rel="noopener">Entrar a Idukay →</a>
+            <a class="btn oro leer" href="nota.html?id=idukay" style="margin-top:0">Cómo usarla →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CHISMÓGRAFO -->
     <section class="card c12 chismo revela" id="chismografo">
       <div class="fila">
@@ -199,8 +215,9 @@ const REAC=[['Me gusta',SV('<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.
  ['Me divierte',SV('<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/>')]];
 /* ====== CONFIGURA AQUÍ ====== */
 const LINK_CHISMOGRAFO = "https://forms.gle/TU_FORMULARIO";
+const LINK_IDUKAY = "https://www.idukay.net";   // confirma la liga de acceso de la escuela
 const FECHA_CUENTA = "2026-11-02T00:00:00";   // cuenta regresiva
-const TICKER = ["Adelanto de exámenes: revisa tus nuevas fechas","Concurso de ofrendas el 30 de octubre","CONADEIP: apoya a nuestras selecciones","Viernes 23 sin uniforme","Manda tu chisme anónimo al Chismógrafo"];
+const TICKER = ["Nueva plataforma escolar: ya puedes entrar a Idukay","Adelanto de exámenes: revisa tus nuevas fechas","Concurso de ofrendas el 30 de octubre","CONADEIP: apoya a nuestras selecciones","Viernes 23 sin uniforme","Manda tu chisme anónimo al Chismógrafo"];
 const ENCUESTA = ["Concurso de ofrendas","Pan de muerto","Puente vacacional","Catrinas y disfraces"];
 /* ============================ */
 
@@ -282,6 +299,10 @@ function pintarEncuesta(){const tot=votos.reduce((a,b)=>a+b,0);
   $('#totalVotos').textContent=miVoto!==null?`${tot} votos · ¡Gracias por participar!`:'Toca una opción para votar';
   $$('.opcion').forEach(b=>b.onclick=()=>{if(miVoto!==null)return;miVoto=+b.dataset.i;votos[miVoto]++;guardar('mh-encuesta',votos);guardar('mh-mivoto',miVoto);pintarEncuesta()})}
 pintarEncuesta();
+
+// Idukay
+$('#linkIdukay').href=LINK_IDUKAY;
+if(window.QRCode) new QRCode($('#qrIdukay'),{text:LINK_IDUKAY,width:120,height:120,colorDark:'#1c1f6b'});
 
 // Chismógrafo
 $('#linkChismo').href=LINK_CHISMOGRAFO;
