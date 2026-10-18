@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maristas Hoy · Periódico digital</title>
+<meta name="description" content="Maristas Hoy: periódico digital del Colegio Marcelino Champagnat, Irapuato.">
+<link rel="icon" href="fotos/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=UnifrakturMaguntia&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div id="progreso"></div>
+<div id="petalos"></div>
+
+<header>
+  <div class="wrap barra">
+    <a href="#" class="marca"><div class="logo" data-logo>MCH</div><span>Maristas Hoy</span></a>
+    <div class="acciones">
+      <div class="drop">
+        <button class="ico" id="btnSecciones"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg> Secciones ▾</button>
+        <div class="menu" id="menuSecciones">
+          <a href="#portada">Portada</a><a href="#direccion">Más allá de Dirección</a>
+          <a href="#redaccion">Redacción</a><a href="#republica">República Escolar</a>
+          <a href="#cafeteria">Menú y precios</a><a href="#satira">Sátira</a>
+          <a href="#calendario">Calendario</a><a href="#competencias">CONADEIP / CONARTE</a>
+          <a href="#encuesta">Encuesta</a><a href="#chismografo">Chismógrafo</a>
+        </div>
+      </div>
+      <button class="ico" id="btnPetalos" title="Pétalos" aria-label="Pétalos"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="12" r="3"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg></button>
+      <button class="ico" id="btnTema" title="Cambiar tema" aria-label="Cambiar tema"></button>
+    </div>
+  </div>
+  <div class="ticker"><div id="tickerTxt"></div></div>
+</header>
+
+<main class="wrap">
+  <section class="cabecera revela" id="portada">
+    <div class="url">www.maristashoy.com.mx</div>
+    <h1>Maristas Hoy</h1>
+    <div class="datos">
+      <span class="chip">Irapuato, Gto.</span>
+      <span class="chip">Miércoles 14 de octubre de 2026</span>
+      <span class="chip">Edición No. 1</span>
+      <span class="chip">Grupo 3°B</span>
+    </div>
+  </section>
+
+  <!-- NOTA PRINCIPAL -->
+  <section class="hero revela">
+    <div class="foto vino" data-src="fotos/portada.jpg" data-ph="Foto de portada"></div>
+    <div class="contenido">
+      <span class="etiqueta">Última hora</span>
+      <h2>¡Adelanto de exámenes!</h2>
+      <p>La coordinación académica recorre una semana el periodo de evaluaciones. Te decimos qué cambia y cómo prepararte.</p>
+      <div class="cuenta" id="cuenta"></div>
+      <div class="btns">
+        <a class="btn oro" href="nota.html?id=examenes">Leer la nota →</a>
+        <a class="btn vidrio" href="#calendario">Ver fechas</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <article class="card c8 revela" id="nota">
+      <div class="sec">Nota principal</div>
+      <h3>Esto es lo que cambia con el adelanto</h3>
+      <p class="p">Las evaluaciones del parcial se aplicarán una semana antes. Alumnos y maestros ajustan su planeación para cerrar temas a tiempo.</p>
+      <a class="btn oro leer" href="nota.html?id=examenes">Leer nota completa →</a>
+      <div class="reac" data-id="nota"></div>
+      <p class="firma">Por: Equipo de Redacción 3°B</p>
+    </article>
+
+    <article class="card c4 revela" id="direccion">
+      <div class="sec">Dirección</div>
+      <div class="foto" data-src="fotos/direccion.jpg" data-ph="Foto de la entrevista"></div>
+      <h3>Más allá de Dirección</h3>
+      <p class="p">El lado menos visto de quienes dirigen la escuela: rutinas, retos y mensajes para esta generación.</p>
+      <a class="btn oro leer" href="nota.html?id=direccion">Leer entrevista →</a>
+      <div class="reac" data-id="direccion"></div>
+    </article>
+
+    <article class="card c4 revela" id="redaccion">
+      <div class="sec">Redacción</div>
+      <div class="foto oro" data-src="fotos/redaccion.jpg" data-ph="Foto editorial"></div>
+      <h3>Un mes de cambios</h3>
+      <p class="p">Nuevas plataformas, horarios y costumbres: el recuento editorial del mes.</p>
+      <a class="btn oro leer" href="nota.html?id=redaccion">Leer editorial →</a>
+      <div class="reac" data-id="redaccion"></div>
+    </article>
+
+    <article class="card c4 revela" id="republica">
+      <div class="sec">República Escolar</div>
+      <div class="foto vino" data-src="fotos/muertos.jpg" data-ph="Foto de la ofrenda"></div>
+      <h3>Iniciando el Día de Muertos</h3>
+      <p class="p">Cada grupo prepara su ofrenda. Fechas, reglas del concurso y cómo participar.</p>
+      <a class="btn oro leer" href="nota.html?id=muertos">Ver bases del concurso →</a>
+      <div class="reac" data-id="republica"></div>
+    </article>
+
+    <article class="card c4 revela" id="cafeteria">
+      <div class="sec">Menú y precios</div>
+      <div class="filtros" id="filtros">
+        <button class="on" data-f="todo">Todo</button><button data-f="desayuno">Desayuno</button>
+        <button data-f="comida">Comida</button><button data-f="bebida">Bebidas</button>
+      </div>
+      <ul class="platillos">
+        <li data-t="desayuno">Chilaquiles <b>$45</b></li>
+        <li data-t="desayuno">Molletes <b>$35</b></li>
+        <li data-t="comida">Torta de jamón <b>$35</b></li>
+        <li data-t="comida">Enchiladas <b>$50</b></li>
+        <li data-t="bebida">Agua fresca <b>$15</b></li>
+        <li data-t="bebida">Chocolate caliente <b>$20</b></li>
+      </ul>
+      <p class="firma">Especial de temporada: pan de muerto $20</p>
+      <a class="btn oro leer" href="nota.html?id=cafeteria">Ver menú de la semana →</a>
+    </article>
+
+    <!-- SÁTIRA -->
+    <section class="card c8 revela" id="satira">
+      <div class="sec">Sátira del Día de Muertos</div>
+      <div class="carrusel">
+        <div class="pista" id="pista">
+          <div class="vineta" data-src="fotos/satira1.jpg"><div class="globo">“Vine por mi calificación del parcial…”</div></div>
+          <div class="vineta" data-src="fotos/satira2.jpg"><div class="globo">“¡Ayuda! ¡Adelantaron los exámenes!”</div></div>
+          <div class="vineta" data-src="fotos/satira3.jpg"><div class="globo">“Tranquilo, de este lado ya nadie reprueba.”</div></div>
+        </div>
+        <button class="flecha izq" id="prev">‹</button><button class="flecha der" id="next">›</button>
+      </div>
+      <div class="puntos" id="puntos"></div>
+      <div style="text-align:center"><a class="btn oro leer" href="nota.html?id=satira">Ver tira completa →</a></div>
+    </section>
+
+    <!-- CALENDARIO -->
+    <section class="card c4 revela" id="calendario">
+      <div class="sec">Calendario</div>
+      <div class="evento"><div class="dia">23<small>OCT</small></div><div><b>Viernes sin uniforme</b><div class="p">Con causa, trae tu aportación</div></div></div>
+      <div class="evento"><div class="dia">30<small>OCT</small></div><div><b>Concurso de ofrendas</b><div class="p">Patio central</div></div></div>
+      <div class="evento"><div class="dia">02<small>NOV</small></div><div><b>Día de Muertos</b><div class="p">Suspensión de clases</div></div></div>
+      <div class="aviso">Próximo: registro de Servicio Social</div>
+      <a class="btn oro leer" href="nota.html?id=servicio">Requisitos del Servicio Social →</a>
+    </section>
+
+    <!-- COMPETENCIAS -->
+    <section class="card c8 revela" id="competencias">
+      <div class="sec">Competencias</div>
+      <div class="tabs" id="tabs"><button class="on" data-p="dep">CONADEIP</button><button data-p="arte">CONARTE</button></div>
+      <div class="panel on" id="dep">
+        <div class="foto oro" data-src="fotos/conadeip.jpg" data-ph="Foto deportiva"></div>
+        <div><h3>Nuestras selecciones en la cancha</h3><p class="p">Resultados de la jornada, próximos partidos y los atletas a seguir.</p>
+          <a class="btn oro leer" href="nota.html?id=conadeip">Ver resultados →</a><div class="reac" data-id="dep"></div></div>
+      </div>
+      <div class="panel" id="arte">
+        <div class="foto" data-src="fotos/conarte.jpg" data-ph="Foto artística"></div>
+        <div><h3>Talento artístico marista</h3><p class="p">Música, teatro y artes visuales: quiénes nos representan y cuándo verlos.</p>
+          <a class="btn oro leer" href="nota.html?id=conarte">Ver presentaciones →</a><div class="reac" data-id="arte"></div></div>
+      </div>
+    </section>
+
+    <!-- ENCUESTA -->
+    <section class="card c4 revela" id="encuesta">
+      <div class="sec">Encuesta</div>
+      <h3 style="margin-top:0">¿Qué esperas más del Día de Muertos?</h3>
+      <div id="opciones"></div>
+      <p class="firma" id="totalVotos"></p>
+    </section>
+
+    <!-- CHISMÓGRAFO -->
+    <section class="card c12 chismo revela" id="chismografo">
+      <div class="fila">
+        <div style="max-width:640px">
+          <h3>Chismógrafo</h3>
+          <p>Buzón anónimo para preguntas, sugerencias y noticias de pasillo. Las mejores se publican en la siguiente edición. <b>Sin nombres ni ataques personales</b>: todo pasa por revisión del equipo editorial.</p>
+          <div class="btns"><a class="btn oro" id="linkChismo" target="_blank">Enviar de forma anónima →</a></div>
+        </div>
+        <div class="qr" id="qrChismo"></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="marca"><div class="logo" data-logo>MCH</div> Maristas Hoy</div>
+    © 2026 · Colegio Marcelino Champagnat · Hecho por el Grupo 3°B
+  </div>
+</footer>
+
+<div id="visor"><img alt=""></div>
+<button id="arriba" title="Volver arriba">↑</button>
+
+<script>
+const SV=(p,f)=>`<svg viewBox="0 0 24 24" width="17" height="17" fill="${f?'currentColor':'none'}" stroke="${f?'none':'currentColor'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+const SOL=SV('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>');
+const LUNA=SV('<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>');
+const REAC=[['Me gusta',SV('<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>',1)],
+ ['Me prende',SV('<path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/>',1)],
+ ['Me divierte',SV('<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/>')]];
+/* ====== CONFIGURA AQUÍ ====== */
+const LINK_CHISMOGRAFO = "https://forms.gle/TU_FORMULARIO";
+const FECHA_CUENTA = "2026-11-02T00:00:00";   // cuenta regresiva
+const TICKER = ["Adelanto de exámenes: revisa tus nuevas fechas","Concurso de ofrendas el 30 de octubre","CONADEIP: apoya a nuestras selecciones","Viernes 23 sin uniforme","Manda tu chisme anónimo al Chismógrafo"];
+const ENCUESTA = ["Concurso de ofrendas","Pan de muerto","Puente vacacional","Catrinas y disfraces"];
+/* ============================ */
+
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+const guardar=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+const leer=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+
+// Fotos: si existe el archivo se muestra; si no, queda la etiqueta
+$$('[data-src]').forEach(el=>{
+  if(el.dataset.ph) el.innerHTML='<span class="ph">'+el.dataset.ph+'</span>';
+  const img=new Image(); img.alt="";
+  img.onload=()=>{el.appendChild(img); if(el.classList.contains('foto')) el.addEventListener('click',()=>abrir(img.src))};
+  img.src=el.dataset.src;
+});
+// Logo
+$$('[data-logo]').forEach(el=>{const i=new Image();i.onload=()=>{el.textContent='';el.appendChild(i)};i.src='fotos/logo.png'});
+
+// Visor
+const visor=$('#visor');
+function abrir(src){visor.querySelector('img').src=src;visor.classList.add('on')}
+visor.onclick=()=>visor.classList.remove('on');
+
+// Tema
+const tema=leer('mh-tema','dark');
+document.documentElement.dataset.theme=tema; $('#btnTema').innerHTML=tema==='dark'?SOL:LUNA;
+$('#btnTema').onclick=()=>{const t=document.documentElement.dataset.theme==='dark'?'light':'dark';
+  document.documentElement.dataset.theme=t;$('#btnTema').innerHTML=t==='dark'?SOL:LUNA;guardar('mh-tema',t)};
+
+// Menú desplegable
+$('#btnSecciones').onclick=e=>{e.stopPropagation();$('#menuSecciones').classList.toggle('abierto')};
+document.addEventListener('click',()=>$('#menuSecciones').classList.remove('abierto'));
+
+// Ticker
+$('#tickerTxt').innerHTML=[...TICKER,...TICKER].map(t=>`<span>${t}</span>`).join('');
+
+// Pétalos
+let petalosOn=true; const cont=$('#petalos');
+function petalo(){if(!petalosOn||document.hidden)return;const p=document.createElement('div');p.className='petalo';
+  p.style.left=Math.random()*100+'vw';p.style.animationDuration=6+Math.random()*6+'s';
+  p.style.background=['#f7c21a','#e8841c','#8a1c1c','#6d2a72'][Math.floor(Math.random()*4)];
+  cont.appendChild(p);setTimeout(()=>p.remove(),12000)}
+setInterval(petalo,700);
+$('#btnPetalos').onclick=()=>{petalosOn=!petalosOn;$('#btnPetalos').style.opacity=petalosOn?1:.4};
+
+// Cuenta regresiva
+function cuenta(){const d=new Date(FECHA_CUENTA)-new Date();if(d<0){$('#cuenta').innerHTML='';return}
+  const v=[Math.floor(d/864e5),Math.floor(d/36e5)%24,Math.floor(d/6e4)%60,Math.floor(d/1e3)%60];
+  $('#cuenta').innerHTML=['Días','Horas','Min','Seg'].map((l,i)=>`<div><b>${String(v[i]).padStart(2,'0')}</b><small>${l}</small></div>`).join('')}
+cuenta();setInterval(cuenta,1000);
+
+// Reacciones
+$$('.reac').forEach(r=>{const id=r.dataset.id;const datos=leer('mh-r-'+id,{});
+  REAC.forEach(([e,ic],i)=>{const b=document.createElement('button');const base=[12,8,5][i];b.title=e;b.setAttribute('aria-label',e);
+    const pint=()=>{b.innerHTML=`${ic} ${base+(datos[e]?1:0)}`;b.classList.toggle('on',!!datos[e])};
+    b.onclick=()=>{datos[e]=!datos[e];guardar('mh-r-'+id,datos);pint();b.animate([{transform:'scale(1.4)'},{transform:'scale(1)'}],300)};
+    pint();r.appendChild(b)})});
+
+// Filtros del menú
+$$('#filtros button').forEach(b=>b.onclick=()=>{$$('#filtros button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  $$('.platillos li').forEach(li=>li.classList.toggle('oculto',b.dataset.f!=='todo'&&li.dataset.t!==b.dataset.f))});
+
+// Carrusel
+let idx=0;const n=$$('.vineta').length;
+$('#puntos').innerHTML=Array.from({length:n},(_,i)=>`<i data-i="${i}"></i>`).join('');
+function ir(i){idx=(i+n)%n;$('#pista').style.transform=`translateX(-${idx*100}%)`;$$('#puntos i').forEach((p,j)=>p.classList.toggle('on',j===idx))}
+$('#prev').onclick=()=>ir(idx-1);$('#next').onclick=()=>ir(idx+1);
+$$('#puntos i').forEach(p=>p.onclick=()=>ir(+p.dataset.i));
+ir(0);setInterval(()=>ir(idx+1),5000);
+
+// Pestañas
+$$('#tabs button').forEach(b=>b.onclick=()=>{$$('#tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  $$('.panel').forEach(p=>p.classList.toggle('on',p.id===b.dataset.p))});
+
+// Encuesta (se guarda en el navegador de cada visitante)
+const votos=leer('mh-encuesta',ENCUESTA.map((_,i)=>[14,9,21,11][i]||5));let miVoto=leer('mh-mivoto',null);
+function pintarEncuesta(){const tot=votos.reduce((a,b)=>a+b,0);
+  $('#opciones').innerHTML=ENCUESTA.map((o,i)=>{const pct=Math.round(votos[i]/tot*100);
+    return `<button class="opcion" data-i="${i}"><div class="barra-v" style="width:${miVoto!==null?pct:0}%"></div><span>${o}${miVoto===i?' · tu voto':''}</span>${miVoto!==null?`<em>${pct}%</em>`:''}</button>`}).join('');
+  $('#totalVotos').textContent=miVoto!==null?`${tot} votos · ¡Gracias por participar!`:'Toca una opción para votar';
+  $$('.opcion').forEach(b=>b.onclick=()=>{if(miVoto!==null)return;miVoto=+b.dataset.i;votos[miVoto]++;guardar('mh-encuesta',votos);guardar('mh-mivoto',miVoto);pintarEncuesta()})}
+pintarEncuesta();
+
+// Chismógrafo
+$('#linkChismo').href=LINK_CHISMOGRAFO;
+if(window.QRCode) new QRCode($('#qrChismo'),{text:LINK_CHISMOGRAFO,width:130,height:130,colorDark:'#1c1f6b'});
+
+// Scroll: progreso, volver arriba y animaciones
+window.addEventListener('scroll',()=>{const h=document.documentElement;
+  $('#progreso').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  $('#arriba').classList.toggle('on',h.scrollTop>600)});
+$('#arriba').onclick=()=>scrollTo({top:0});
+$$('a[href^="nota.html"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.body.classList.add('saliendo');setTimeout(()=>location.href=a.href,250)}));
+window.addEventListener('pageshow',()=>document.body.classList.remove('saliendo'));
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visto');obs.unobserve(e.target)}}),{threshold:.12});
+$$('.revela').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
