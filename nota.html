@@ -109,7 +109,7 @@ $$('[data-src]').forEach(el=>{
   const cap=el.querySelector('figcaption');
   if(el.dataset.ph){el.insertAdjacentHTML('afterbegin','<span class="ph">'+esc(el.dataset.ph)+'</span>')}
   const img=new Image();img.alt="";
-  img.onload=()=>{el.insertBefore(img,cap);el.addEventListener('click',e=>{if(!el.closest('a')){abrir(img.src)}})};
+  img.onload=()=>{el.querySelector('.ph')?.remove();el.insertBefore(img,cap);el.addEventListener('click',e=>{if(!el.closest('a')){abrir(img.src)}})};
   img.src=el.dataset.src;
 });
 $$('[data-logo]').forEach(el=>{const i=new Image();i.onload=()=>{el.textContent='';el.appendChild(i)};i.src='fotos/logo.png'});
