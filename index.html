@@ -184,13 +184,50 @@
 
     <!-- CHISMÓGRAFO -->
     <section class="card c12 chismo revela" id="chismografo">
-      <div class="fila">
-        <div style="max-width:640px">
+      <div class="ch-grid">
+        <div class="ch-info">
+          <span class="etiqueta">Buzón anónimo</span>
           <h3>Chismógrafo</h3>
-          <p>Buzón anónimo para preguntas, sugerencias y noticias de pasillo. Las mejores se publican en la siguiente edición. <b>Sin nombres ni ataques personales</b>: todo pasa por revisión del equipo editorial.</p>
-          <div class="btns"><a class="btn oro" id="linkChismo" target="_blank">Enviar de forma anónima →</a></div>
+          <p>Cuéntanos chismes de pasillo, preguntas, sugerencias o noticias. No pedimos tu nombre. El equipo editorial revisa todo y lo mejor se publica en la siguiente edición.</p>
+          <ul class="ch-reglas">
+            <li>Sin nombres completos ni apodos que identifiquen a alguien</li>
+            <li>Sin insultos, burlas ni ataques</li>
+            <li>Sin teléfonos, direcciones ni redes sociales</li>
+          </ul>
+          <div class="ch-qr"><div class="qr" id="qrChismo"></div><small>Escanea para abrir el buzón desde tu celular</small></div>
         </div>
-        <div class="qr" id="qrChismo"></div>
+
+        <div class="ch-caja">
+          <form id="chForm" novalidate>
+            <fieldset class="ch-cats">
+              <legend>¿Qué nos quieres contar?</legend>
+              <label><input type="radio" name="cat" value="Chisme" checked><span>Chisme</span></label>
+              <label><input type="radio" name="cat" value="Pregunta"><span>Pregunta</span></label>
+              <label><input type="radio" name="cat" value="Sugerencia"><span>Sugerencia</span></label>
+              <label><input type="radio" name="cat" value="Noticia"><span>Noticia</span></label>
+            </fieldset>
+
+            <label class="ch-lbl" for="chMsg">Tu mensaje</label>
+            <textarea id="chMsg" maxlength="500" rows="5" placeholder="Escribe aquí… (máximo 500 caracteres)"></textarea>
+            <div class="ch-meta"><span id="chAviso" class="ch-aviso" role="alert"></span><span id="chCont">0 / 500</span></div>
+
+            <label class="ch-lbl" for="chGrupo">Tu grupo <small>(opcional)</small></label>
+            <input type="text" id="chGrupo" maxlength="15" placeholder="Ej. 3B (déjalo vacío si prefieres)">
+
+            <input type="text" id="chWeb" tabindex="-1" autocomplete="off" class="ch-trampa" aria-hidden="true">
+
+            <label class="ch-check" for="chOk"><input type="checkbox" id="chOk"> Acepto las reglas y entiendo que mi mensaje será revisado antes de publicarse.</label>
+
+            <button class="btn oro ch-enviar" type="submit" id="chBtn">Enviar de forma anónima →</button>
+          </form>
+
+          <div class="ch-sobre" id="chSobre" hidden>
+            <div class="sobre"><div class="sobre-tapa"></div><div class="sello">MH</div></div>
+            <h4>¡Recibido!</h4>
+            <p>Tu mensaje llegó al equipo editorial. Si es de los mejores, lo verás en la próxima edición.</p>
+            <button class="btn vidrio" type="button" id="chOtro">Enviar otro</button>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -214,8 +251,11 @@ const REAC=[['Me gusta',SV('<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.
  ['Me prende',SV('<path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/>',1)],
  ['Me divierte',SV('<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/>')]];
 /* ====== CONFIGURA AQUÍ ====== */
-const LINK_CHISMOGRAFO = "https://docs.google.com/forms/d/e/1FAIpQLSeUNsQmATP_gYCH0RyORjaIgDbRxHdv19XQZQRmqSMBL8bp6w/viewform?pli=1";
-const LINK_IDUKAY = "https://idukay.net/colegios/#/login";   // confirma la liga de acceso de la escuela
+// Chismógrafo: pega aquí la liga de tu Google Forms (la que termina en /viewform)
+const CHISMO_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSeUNsQmATP_gYCH0RyORjalgDbRxHdv19XQZQRmqSMBL8bp6w/viewform";
+const CHISMO_ENTRY = "entry.1333960216";
+const SITIO_URL = "https://roberto1254152.github.io/maristas-hoy/";   // liga de tu página en GitHub
+const LINK_IDUKAY = "https://www.idukay.net";   // confirma la liga de acceso de la escuela
 const FECHA_CUENTA = "2026-11-02T00:00:00";   // cuenta regresiva
 const TICKER = ["Nueva plataforma escolar: ya puedes entrar a Idukay","Adelanto de exámenes: revisa tus nuevas fechas","Concurso de ofrendas el 30 de octubre","CONADEIP: apoya a nuestras selecciones","Viernes 23 sin uniforme","Manda tu chisme anónimo al Chismógrafo"];
 const ENCUESTA = ["Concurso de ofrendas","Pan de muerto","Puente vacacional","Catrinas y disfraces"];
@@ -229,7 +269,7 @@ const leer=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){re
 $$('[data-src]').forEach(el=>{
   if(el.dataset.ph) el.innerHTML='<span class="ph">'+el.dataset.ph+'</span>';
   const img=new Image(); img.alt="";
-  img.onload=()=>{el.appendChild(img); if(el.classList.contains('foto')) el.addEventListener('click',()=>abrir(img.src))};
+  img.onload=()=>{el.querySelector('.ph')?.remove();el.appendChild(img); if(el.classList.contains('foto')) el.addEventListener('click',()=>abrir(img.src))};
   img.src=el.dataset.src;
 });
 // Logo
@@ -305,8 +345,40 @@ $('#linkIdukay').href=LINK_IDUKAY;
 if(window.QRCode) new QRCode($('#qrIdukay'),{text:LINK_IDUKAY,width:120,height:120,colorDark:'#1c1f6b'});
 
 // Chismógrafo
-$('#linkChismo').href=LINK_CHISMOGRAFO;
-if(window.QRCode) new QRCode($('#qrChismo'),{text:LINK_CHISMOGRAFO,width:130,height:130,colorDark:'#1c1f6b'});
+const chForm=$('#chForm'),chMsg=$('#chMsg'),chAviso=$('#chAviso'),chBtn=$('#chBtn');
+const chURL=CHISMO_FORM.replace(/\/viewform.*$/,'/formResponse');
+const ESPERA=3*60*1000;
+const chQR=SITIO_URL+'#chismografo';
+if(window.QRCode) new QRCode($('#qrChismo'),{text:chQR,width:110,height:110,colorDark:'#1c1f6b'});
+function chRevisar(){
+  const t=chMsg.value;
+  $('#chCont').textContent=t.length+' / 500';
+  if(/\d[\d\s-]{8,}\d/.test(t)) return 'Quita números de teléfono.';
+  if(/@[\w.]{3,}/.test(t)) return 'Quita usuarios de redes sociales (@…).';
+  return '';
+}
+chMsg.addEventListener('input',()=>{chAviso.textContent=chRevisar()});
+chForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const txt=chMsg.value.trim();
+  let error=chRevisar();
+  if(!txt||txt.length<10) error='Escribe al menos 10 caracteres.';
+  else if(!$('#chOk').checked) error='Acepta las reglas para poder enviar.';
+  const ultimo=leer('mh-chisme',0);
+  if(!error&&Date.now()-ultimo<ESPERA) error='Espera unos minutos antes de enviar otro mensaje.';
+  if(error){chAviso.textContent=error;chForm.animate([{transform:'translateX(-6px)'},{transform:'translateX(6px)'},{transform:'none'}],250);return}
+  if($('#chWeb').value) return; // trampa para bots
+  const cat=chForm.querySelector('[name=cat]:checked').value, grupo=$('#chGrupo').value.trim();
+  const datos=new FormData(); datos.append(CHISMO_ENTRY,`[${cat}${grupo?' · '+grupo:''}] ${txt}`);
+  chBtn.disabled=true; chBtn.textContent='Enviando…';
+  try{
+    await fetch(chURL,{method:'POST',mode:'no-cors',body:datos});
+    guardar('mh-chisme',Date.now());
+    chForm.hidden=true; $('#chSobre').hidden=false;
+  }catch(err){chAviso.textContent='No se pudo enviar. Revisa tu conexión e inténtalo de nuevo.'}
+  chBtn.disabled=false; chBtn.textContent='Enviar de forma anónima →';
+});
+$('#chOtro').onclick=()=>{chForm.reset();$('#chCont').textContent='0 / 500';chAviso.textContent='';$('#chSobre').hidden=true;chForm.hidden=false};
 
 // Scroll: progreso, volver arriba y animaciones
 window.addEventListener('scroll',()=>{const h=document.documentElement;
