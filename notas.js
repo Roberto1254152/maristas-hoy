@@ -25,7 +25,7 @@ const NOTAS = {
     ]
   },
   idukay:{
-    seccion:"Cambio de plataforma", color:"", foto:"fotos/idukay.jpg",
+    seccion:"Cambio de plataforma", color:"conlogo", foto:"fotos/idukay.jpg",
     titulo:"Llegó Idukay: así funciona la nueva plataforma",
     subtitulo:"Calificaciones, tareas, avisos y pagos ahora en un solo lugar.",
     autor:"Equipo de Redacción 3°B", fecha:"Octubre 2026",
