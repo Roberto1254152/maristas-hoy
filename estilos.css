@@ -232,3 +232,7 @@ body.saliendo{opacity:0;transform:translateY(-8px);transition:.3s}
 .foto.conlogo:hover img{transform:none}
 .mas .foto.conlogo img{top:50%;right:50%;transform:translate(50%,-50%);width:70%}
 .mas .foto.conlogo:hover img{transform:translate(50%,-50%)}
+
+/* La foto siempre queda encima de su etiqueta */
+.foto{isolation:isolate}
+.foto img{z-index:2}
