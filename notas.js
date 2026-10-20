@@ -42,18 +42,18 @@ const NOTAS = {
   },
   direccion:{
     seccion:"Más allá de Dirección", color:"", foto:"fotos/direccion.jpg",
-    titulo:"Más allá de Dirección",
-    subtitulo:"El lado menos visto de quienes dirigen la escuela.",
-    autor:"Equipo de Redacción 3°B", fecha:"Octubre 2026",
+    titulo:"José Miguel: más allá de la dirección",
+    subtitulo:"El director nos habla de su juventud, los retos de su cargo y lo que significa para él el colegio.",
+    autor:"Prepa González Buffa Max", fecha:"Octubre 2026",
     cuerpo:[
-      "Introducción de la entrevista: a quién entrevistamos y por qué.",
-      {h:"¿Cómo es un día normal en Dirección?"},
-      "Respuesta del entrevistado.",
-      {h:"¿Cuál es el mayor reto de este ciclo?"},
-      "Respuesta del entrevistado.",
-      {cita:"Una frase memorable de la entrevista.", de:"Nombre del entrevistado"},
-      {h:"Un mensaje para esta generación"},
-      "Respuesta del entrevistado."
+      "Durante una entrevista para nuestro periódico escolar, el director José Miguel nos compartió algunas experiencias de su vida y su trabajo. Cuando era joven, disfrutaba practicar deportes y salir con sus amigos. También recordó que tuvo dificultades con una maestra durante la preparatoria.",
+      {h:"Lo que más disfruta y sus mayores retos"},
+      "Lo que más disfruta de ser director es convivir con los jóvenes, aprender de ellos y contribuir a su desarrollo. Sin embargo, reconoce que la responsabilidad, las limitaciones administrativas y las situaciones difíciles que viven los integrantes de la comunidad escolar son algunos de los mayores retos de su cargo.",
+      {h:"Un camino inesperado"},
+      "Además, confesó que nunca imaginó dedicarse a la educación, pues tenía otros planes para su futuro, pero con el tiempo aprendió a aceptar el camino que la vida le presentó.",
+      {h:"Un colegio que avanza en equipo"},
+      "Finalmente, explicó que el colegio avanza gracias al trabajo conjunto de directivos, docentes, alumnos y familias. Para él, la escuela se define en tres palabras:",
+      {cita:"Alegría, fe y juventud.", de:"José Miguel, director"}
     ]
   },
   redaccion:{
@@ -67,6 +67,21 @@ const NOTAS = {
       "Texto.",
       {h:"Lo que falta mejorar"},
       "Texto."
+    ]
+  },
+  republica:{
+    seccion:"República Escolar", color:"", foto:"",
+    titulo:"La República Escolar: una oportunidad para fortalecer la participación estudiantil",
+    subtitulo:"La secundaria ya organiza una nueva edición del proyecto que impulsa la democracia, la igualdad y el liderazgo.",
+    autor:"Equipo de Redacción 3°B", fecha:"Octubre 2026",
+    cuerpo:[
+      "Con el objetivo de mejorar la participación democrática, la igualdad y el desarrollo personal de los estudiantes, la secundaria del Marcelino Champagnat ya se encuentra organizando la nueva edición del proyecto República Escolar. En entrevista, Juan Camacho Hernández, director de secundaria, nos compartió los detalles de la relevancia de esta tradición.",
+      {cita:"República Escolar es un proyecto muy bueno que consideramos que a los alumnos primeramente les agrada, y les deja mucho aprendizaje en cuestión de democracia y de igualdades.", de:"Juan Camacho Hernández, director de secundaria"},
+      {h:"Seguridad y confianza"},
+      "Juan Camacho señaló que la participación activa ayuda a los estudiantes a ganar seguridad y confianza en sí mismos; esto genera un impacto positivo en el ámbito social. Al presentar sus propuestas, dar a conocer sus ideas para así poder desarrollar habilidades de comunicación y liderazgo.",
+      {cita:"Se les va quitando el miedo a afrontar todo este tipo de situaciones y a relacionarse con personas con las que generalmente no tienen tanto trato.", de:"Juan Camacho Hernández"},
+      {h:"Espacios para expresarse"},
+      "Con estas acciones, la escuela brinda espacios donde los estudiantes puedan expresarse, perder el miedo a hablar en público y aprender a trabajar juntos por el bienestar común."
     ]
   },
   muertos:{
@@ -144,4 +159,4 @@ const NOTAS = {
   }
 };
 /* Orden en que se navega con los botones Anterior / Siguiente */
-const ORDEN = ["examenes","idukay","direccion","redaccion","muertos","cafeteria","satira","servicio","conadeip","conarte"];
+const ORDEN = ["examenes","idukay","direccion","redaccion","republica","muertos","cafeteria","satira","servicio","conadeip","conarte"];
