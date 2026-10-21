@@ -83,8 +83,8 @@ const NOTAS = {
       "El selectivo de programación de la preparatoria participó en la CodingCup del Tecnológico Nacional de México (TecNM), una competencia en la que se enfrentó a equipos universitarios de institutos tecnológicos del estado y de todo el país.",
       "Siendo alumnos de preparatoria, nuestros programadores compitieron de igual a igual contra estudiantes de nivel superior y terminaron dentro del top 10.",
       {h:"El equipo"},
-      {lista:["Escribe aquí el nombre del integrante 1","Escribe aquí el nombre del integrante 2","Escribe aquí el nombre del integrante 3"]},
-      {cita:"Escribe aquí una frase de un integrante o del asesor.", de:"Nombre"}
+      {lista:["Código Champagnat","The Ghosts","Error 404: Team Not Found","Astra Invictus"]},
+      {cita:"No cualquiera se enfrenta a universitarios usando solo la mente y un teclado. Ellos lo hicieron, y yo ya estaba orgulloso desde antes de que empezara el concurso.", de:"Ing. Roberto Pérez, asesor del selectivo de programación"}
     ]
   },
   civico:{
@@ -192,15 +192,19 @@ const NOTAS = {
     ]
   },
   cafeteria:{
-    seccion:"Menú y precios", color:"oro", foto:"fotos/cafeteria.jpg",
-    titulo:"El menú de la semana",
-    subtitulo:"Qué hay en la cafetería, cuánto cuesta y el especial de temporada.",
-    autor:"Equipo de Redacción 3°B", fecha:"Semana del 14 de octubre",
+    seccion:"Cafetería", color:"oro", foto:"fotos/cafeteria.jpg",
+    titulo:"Menú de la cafetería",
+    subtitulo:"Desayunos de 8:40 a 11:50 a. m. y comidas de 1:30 a 3:00 p. m., de lunes a viernes. Precios de $25 a $60.",
+    autor:"Cafetería del colegio", fecha:"Octubre 2026",
     cuerpo:[
-      {h:"Lunes a viernes"},
-      {lista:["Chilaquiles — $45","Molletes — $35","Torta de jamón — $35","Enchiladas — $50","Agua fresca — $15"]},
-      {cita:"Especial de temporada: pan de muerto a $20.", de:"Cafetería"},
-      "Agrega aquí la reseña del platillo de la semana."
+      "Cada platillo es cuidadosamente diseñado por nuestra chef y analizado por nuestra nutrióloga.",
+      {h:"Desayunos · 8:40 a 11:50 a. m."},
+      {lista:["Tacos de carne: chorizo de res y bistec","Burritos, sincronizadas y quesadillas en tortilla de harina integral","Sándwiches","Malteadas de fresa, plátano y cacao","Cóctel de fruta de temporada","Barra de yogurt","Aguas frescas de sabor","Agua natural"]},
+      {h:"Especiales del día (desayuno)"},
+      {lista:["Lunes: barra de ensaladas y empanadas integrales","Martes: wrap de pollo, tacos de guisados caseros y tostielotes","Miércoles: hot cakes, tacos de guisados caseros, pepinos locos y tostielotes","Jueves: barra de ensaladas, tacos de guisados caseros y empanadas integrales","Viernes: taquitos al pastor, barra de ensaladas y empanadas integrales"]},
+      {h:"Comidas · 1:30 a 3:00 p. m."},
+      {lista:["Lunes: yakimeshi y cuernitos de jamón","Martes: wrap de pollo y pasta a la boloñesa","Miércoles: hamburguesa de pollo y cuernito de jamón","Jueves: bowl y cuernitos de jamón","Viernes: hot dog y cuernitos de crema de avellana, fresa o plátano"]},
+      {cita:"Precios de $25 a $60.", de:"Cafetería"}
     ]
   },
   satira:{

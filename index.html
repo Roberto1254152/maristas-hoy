@@ -23,7 +23,7 @@
         <div class="menu" id="menuSecciones">
           <a href="#portada">Portada</a><a href="nota.html?id=cascanueces">Exclusiva: El Cascanueces</a><a href="#direccion">Más allá de Dirección</a>
           <a href="#redaccion">Redacción</a><a href="#republica">República Escolar</a>
-          <a href="#cafeteria">Menú y precios</a><a href="#satira">Sátira</a>
+          <a href="#cafeteria">Cafetería</a><a href="#satira">Sátira</a>
           <a href="#calendario">Calendario</a><a href="nota.html?id=eventos">Eventos Champagnat</a><a href="#primaria">Primaria</a><a href="#competencias">CONADEIP / CONARTE / Programación</a>
           <a href="#idukay">Idukay</a><a href="#encuesta">Encuesta</a><a href="#chismografo">Chismógrafo</a>
         </div>
@@ -106,20 +106,14 @@
     </article>
 
     <article class="card c4 revela" id="cafeteria">
-      <div class="sec">Menú y precios</div>
+      <div class="sec">Cafetería</div>
+      <p class="menu-dia" id="menuDia"></p>
       <div class="filtros" id="filtros">
-        <button class="on" data-f="todo">Todo</button><button data-f="desayuno">Desayuno</button>
-        <button data-f="comida">Comida</button><button data-f="bebida">Bebidas</button>
+        <button class="on" data-f="esp">Especial de hoy</button><button data-f="com">Comida de hoy</button><button data-f="des">Desayunos</button>
       </div>
-      <ul class="platillos">
-        <li data-t="desayuno">Chilaquiles <b>$45</b></li>
-        <li data-t="desayuno">Molletes <b>$35</b></li>
-        <li data-t="comida">Torta de jamón <b>$35</b></li>
-        <li data-t="comida">Enchiladas <b>$50</b></li>
-        <li data-t="bebida">Agua fresca <b>$15</b></li>
-        <li data-t="bebida">Chocolate caliente <b>$20</b></li>
-      </ul>
-      <p class="firma">Especial de temporada: pan de muerto $20</p>
+      <ul class="platillos" id="menuLista"></ul>
+      <p class="firma" id="menuHorario"></p>
+      <p class="firma" style="margin-top:4px">Precios de $25 a $60</p>
       <a class="btn oro leer" href="nota.html?id=cafeteria">Ver menú de la semana →</a>
     </article>
 
@@ -296,6 +290,11 @@ const SITIO_URL = "https://roberto1254152.github.io/maristas-hoy/";   // liga de
 const LINK_IDUKAY = "https://www.idukay.net";   // confirma la liga de acceso de la escuela
 const FECHA_CUENTA = "2026-10-22T07:00:00";   // cuenta regresiva (inicio del segundo parcial)
 const TICKER = ["Segundo parcial: del 22 de octubre al 4 de noviembre","Exclusiva: El Cascanueces regresa al Teatro de la Ciudad","Programación: nuestro selectivo, en el top 10 de la CodingCup TecNM","Jueves 29: festejo de Día de Muertos con casa del terror","Del 4 al 8 de noviembre: torneo internacional Futbol Vallarta","Nueva plataforma escolar: ya puedes entrar a Idukay","Manda tu chisme anónimo al Chismógrafo"];
+const MENU = {
+  desayunos:[["Tacos de carne","Chorizo de res y bistec"],["Burritos, sincronizadas y quesadillas","Tortilla de harina integral"],["Sándwiches",""],["Malteadas","Fresa, plátano y cacao"],["Cóctel de fruta","De temporada"],["Barra de yogurt",""],["Aguas frescas de sabor",""],["Agua natural",""]],
+  especiales:[["Barra de ensaladas","Empanadas integrales"],["Wrap de pollo","Tacos de guisados caseros","Tostielotes"],["Hot cakes","Tacos de guisados caseros","Pepinos locos","Tostielotes"],["Barra de ensaladas","Tacos de guisados caseros","Empanadas integrales"],["Taquitos al pastor","Barra de ensaladas","Empanadas integrales"]],
+  comidas:["Yakimeshi y cuernitos de jamón","Wrap de pollo y pasta a la boloñesa","Hamburguesa de pollo y cuernito de jamón","Bowl y cuernitos de jamón","Hot dog y cuernitos de crema de avellana, fresa o plátano"]
+};
 const ENCUESTA = ["Concurso de ofrendas","Pan de muerto","Puente vacacional","Catrinas y disfraces"];
 /* ============================ */
 
@@ -353,9 +352,20 @@ $$('.reac').forEach(r=>{const id=r.dataset.id;const datos=leer('mh-r-'+id,{});
     b.onclick=()=>{datos[e]=!datos[e];guardar('mh-r-'+id,datos);pint();b.animate([{transform:'scale(1.4)'},{transform:'scale(1)'}],300)};
     pint();r.appendChild(b)})});
 
-// Filtros del menú
-$$('#filtros button').forEach(b=>b.onclick=()=>{$$('#filtros button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
-  $$('.platillos li').forEach(li=>li.classList.toggle('oculto',b.dataset.f!=='todo'&&li.dataset.t!==b.dataset.f))});
+// Menú de la cafetería (cambia solo según el día)
+const DIAS=['Lunes','Martes','Miércoles','Jueves','Viernes'];
+const hoy=new Date().getDay(), finde=hoy===0||hoy===6, dIdx=finde?0:hoy-1;
+$('#menuDia').textContent=finde?'Fin de semana: así viene el lunes':'Hoy es '+DIAS[dIdx].toLowerCase();
+function pintarMenu(f){
+  let items=[],hor='';
+  if(f==='esp'){items=MENU.especiales[dIdx].map(x=>[x,'']);hor='Desayunos de 8:40 a 11:50 a. m.'}
+  if(f==='com'){items=[[MENU.comidas[dIdx],'']];hor='Comidas de 1:30 a 3:00 p. m.'}
+  if(f==='des'){items=MENU.desayunos;hor='Todos los días, de 8:40 a 11:50 a. m.'}
+  $('#menuLista').innerHTML=items.map(([n,d])=>`<li><span>${n}${d?`<small>${d}</small>`:''}</span></li>`).join('');
+  $('#menuHorario').textContent=hor;
+}
+$$('#filtros button').forEach(b=>b.onclick=()=>{$$('#filtros button').forEach(x=>x.classList.remove('on'));b.classList.add('on');pintarMenu(b.dataset.f)});
+pintarMenu('esp');
 
 // Carrusel
 let idx=0;const n=$$('.vineta').length;

@@ -316,3 +316,8 @@ body.saliendo{opacity:0;transform:translateY(-8px);transition:.3s}
 @media (max-width:700px){.principal{grid-template-columns:1fr}}
 .tabs{max-width:100%;flex-wrap:wrap;border-radius:20px}
 @media (max-width:500px){.tabs button{padding:8px 11px;font-size:.8rem}}
+
+/* Menú de la cafetería */
+.menu-dia{font-weight:800;color:var(--oro);font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;margin:-4px 0 10px}
+.platillos li span{display:block}
+.platillos small{display:block;color:var(--suave);font-size:.8rem;margin-top:2px}
