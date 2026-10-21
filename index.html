@@ -21,10 +21,10 @@
       <div class="drop">
         <button class="ico" id="btnSecciones"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg> Secciones ▾</button>
         <div class="menu" id="menuSecciones">
-          <a href="#portada">Portada</a><a href="#direccion">Más allá de Dirección</a>
+          <a href="#portada">Portada</a><a href="nota.html?id=cascanueces">Exclusiva: El Cascanueces</a><a href="#direccion">Más allá de Dirección</a>
           <a href="#redaccion">Redacción</a><a href="#republica">República Escolar</a>
           <a href="#cafeteria">Menú y precios</a><a href="#satira">Sátira</a>
-          <a href="#calendario">Calendario</a><a href="#competencias">CONADEIP / CONARTE</a>
+          <a href="#calendario">Calendario</a><a href="nota.html?id=eventos">Eventos Champagnat</a><a href="#primaria">Primaria</a><a href="#competencias">CONADEIP / CONARTE / Programación</a>
           <a href="#idukay">Idukay</a><a href="#encuesta">Encuesta</a><a href="#chismografo">Chismógrafo</a>
         </div>
       </div>
@@ -53,7 +53,7 @@
     <div class="contenido">
       <span class="etiqueta">Última hora</span>
       <h2>¡Adelanto de exámenes!</h2>
-      <p>La coordinación académica recorre una semana el periodo de evaluaciones. Te decimos qué cambia y cómo prepararte.</p>
+      <p>El segundo parcial va del 22 de octubre al 4 de noviembre. Consulta el horario de tu grupo y prepárate.</p>
       <div class="cuenta" id="cuenta"></div>
       <div class="btns">
         <a class="btn oro" href="nota.html?id=examenes">Leer la nota →</a>
@@ -65,11 +65,17 @@
   <div class="grid">
     <article class="card c8 revela" id="nota">
       <div class="sec">Nota principal</div>
-      <h3>Esto es lo que cambia con el adelanto</h3>
-      <p class="p">Las evaluaciones del parcial se aplicarán una semana antes. Alumnos y maestros ajustan su planeación para cerrar temas a tiempo.</p>
-      <a class="btn oro leer" href="nota.html?id=examenes">Leer nota completa →</a>
-      <div class="reac" data-id="nota"></div>
-      <p class="firma">Por: Equipo de Redacción 3°B</p>
+      <div class="principal">
+        <div class="foto vino" data-src="fotos/cascanueces.jpg" data-ph="Foto del Cascanueces"></div>
+        <div class="principal-txt">
+          <span class="etiqueta">Exclusiva</span>
+          <h3>El Cascanueces regresa al Teatro de la Ciudad</h3>
+          <p class="p">Por segundo año consecutivo, el colegio presentará una adaptación de El Cascanueces en el Teatro de la Ciudad, con la participación de los alumnos de primaria.</p>
+          <p class="p">El jueves 3 de diciembre vendrán bailarines y cantantes externos a dar pláticas sobre la obra.</p>
+          <a class="btn oro leer" href="nota.html?id=cascanueces">Leer la exclusiva →</a>
+          <div class="reac" data-id="nota"></div>
+        </div>
+      </div>
     </article>
 
     <article class="card c4 revela" id="direccion">
@@ -135,9 +141,11 @@
     <!-- CALENDARIO -->
     <section class="card c4 revela" id="calendario">
       <div class="sec">Calendario</div>
-      <div class="evento"><div class="dia">23<small>OCT</small></div><div><b>Viernes sin uniforme</b><div class="p">Con causa, trae tu aportación</div></div></div>
-      <div class="evento"><div class="dia">30<small>OCT</small></div><div><b>Concurso de ofrendas</b><div class="p">Patio central</div></div></div>
-      <div class="evento"><div class="dia">02<small>NOV</small></div><div><b>Día de Muertos</b><div class="p">Suspensión de clases</div></div></div>
+      <div class="evento"><div class="dia">21<small>OCT</small></div><div><b>Actividad por la paz</b><div class="p">Sección primaria</div></div></div>
+      <div class="evento"><div class="dia">22<small>OCT</small></div><div><b>Inicia el segundo parcial</b><div class="p">Preparatoria, hasta el 4 de noviembre</div></div></div>
+      <div class="evento"><div class="dia">29<small>OCT</small></div><div><b>Festejo de Día de Muertos</b><div class="p">Tumbas, altares y casa del terror</div></div></div>
+      <div class="evento"><div class="dia">02<small>NOV</small></div><div><b>Asueto</b><div class="p">No hay clases</div></div></div>
+      <a class="btn oro leer" href="nota.html?id=eventos">Ver todos los eventos →</a>
       <div class="aviso">Próximo: registro de Servicio Social</div>
       <a class="btn oro leer" href="nota.html?id=servicio">Requisitos del Servicio Social →</a>
     </section>
@@ -145,7 +153,7 @@
     <!-- COMPETENCIAS -->
     <section class="card c8 revela" id="competencias">
       <div class="sec">Competencias</div>
-      <div class="tabs" id="tabs"><button class="on" data-p="dep">CONADEIP</button><button data-p="arte">CONARTE</button></div>
+      <div class="tabs" id="tabs"><button class="on" data-p="dep">CONADEIP</button><button data-p="arte">CONARTE</button><button data-p="prog">Programación</button></div>
       <div class="panel on" id="dep">
         <div class="foto oro" data-src="fotos/conadeip.jpg" data-ph="Foto deportiva"></div>
         <div><h3>Nuestras selecciones en la cancha</h3><p class="p">Resultados de la jornada, próximos partidos y los atletas a seguir.</p>
@@ -156,6 +164,11 @@
         <div><h3>Talento artístico marista</h3><p class="p">Música, teatro y artes visuales: quiénes nos representan y cuándo verlos.</p>
           <a class="btn oro leer" href="nota.html?id=conarte">Ver presentaciones →</a><div class="reac" data-id="arte"></div></div>
       </div>
+      <div class="panel" id="prog">
+        <div class="foto vino" data-src="fotos/codingcup.jpg" data-ph="Foto del selectivo"></div>
+        <div><span class="etiqueta">Top 10</span><h3>Prepas entre universitarios en la CodingCup TecNM</h3><p class="p">Nuestro selectivo de programación compitió contra equipos universitarios de tecnológicos del estado y del país, y terminó entre los diez mejores.</p>
+          <a class="btn oro leer" href="nota.html?id=codingcup">Leer nota →</a><div class="reac" data-id="prog"></div></div>
+      </div>
     </section>
 
     <!-- ENCUESTA -->
@@ -164,6 +177,31 @@
       <h3 style="margin-top:0">¿Qué esperas más del Día de Muertos?</h3>
       <div id="opciones"></div>
       <p class="firma" id="totalVotos"></p>
+    </section>
+
+    <!-- PRIMARIA -->
+    <section class="card c12 revela" id="primaria">
+      <div class="sec">Primaria</div>
+      <div class="tri">
+        <article class="mini">
+          <div class="foto vino" data-src="fotos/civico.jpg" data-ph="Foto del acto cívico"></div>
+          <h3>México tejido desde el corazón</h3>
+          <p class="p">Los grupos de 6° dirigieron el acto cívico por el Día de la Nación Pluricultural.</p>
+          <a class="btn oro leer" href="nota.html?id=civico">Leer nota →</a>
+        </article>
+        <article class="mini">
+          <div class="foto" data-src="fotos/crecer.jpg" data-ph="Foto de la plática"></div>
+          <h3>Crecer es natural: aprendamos sobre nuestro cuerpo</h3>
+          <p class="p">Dos enfermeras visitaron a 4°, 5° y 6° para hablar de salud con confianza.</p>
+          <a class="btn oro leer" href="nota.html?id=crecer">Leer nota →</a>
+        </article>
+        <article class="mini">
+          <div class="foto oro" data-src="fotos/retiro.jpg" data-ph="Foto del retiro"></div>
+          <h3>Un viaje del corazón: nuestro retiro espiritual marista</h3>
+          <p class="p">Un día fuera del aula para encontrarse con uno mismo, la naturaleza y Jesús.</p>
+          <a class="btn oro leer" href="nota.html?id=retiro">Leer nota →</a>
+        </article>
+      </div>
     </section>
 
     <!-- IDUKAY -->
@@ -256,8 +294,8 @@ const CHISMO_FORM = "https://docs.google.com/forms/d/e/1FAIpQLSeUNsQmATP_gYCH0Ry
 const CHISMO_ENTRY = "entry.1333960216";
 const SITIO_URL = "https://roberto1254152.github.io/maristas-hoy/";   // liga de tu página en GitHub
 const LINK_IDUKAY = "https://www.idukay.net";   // confirma la liga de acceso de la escuela
-const FECHA_CUENTA = "2026-11-02T00:00:00";   // cuenta regresiva
-const TICKER = ["Nueva plataforma escolar: ya puedes entrar a Idukay","Adelanto de exámenes: revisa tus nuevas fechas","Concurso de ofrendas el 30 de octubre","CONADEIP: apoya a nuestras selecciones","Viernes 23 sin uniforme","Manda tu chisme anónimo al Chismógrafo"];
+const FECHA_CUENTA = "2026-10-22T07:00:00";   // cuenta regresiva (inicio del segundo parcial)
+const TICKER = ["Segundo parcial: del 22 de octubre al 4 de noviembre","Exclusiva: El Cascanueces regresa al Teatro de la Ciudad","Programación: nuestro selectivo, en el top 10 de la CodingCup TecNM","Jueves 29: festejo de Día de Muertos con casa del terror","Del 4 al 8 de noviembre: torneo internacional Futbol Vallarta","Nueva plataforma escolar: ya puedes entrar a Idukay","Manda tu chisme anónimo al Chismógrafo"];
 const ENCUESTA = ["Concurso de ofrendas","Pan de muerto","Puente vacacional","Catrinas y disfraces"];
 /* ============================ */
 

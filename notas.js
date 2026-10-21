@@ -7,21 +7,116 @@
      {cita:"Frase destacada", de:"Quién"}
      {lista:["uno","dos","tres"]}
      {foto:"fotos/archivo.jpg", pie:"Descripción"}
+     {evento:{dia:"21", mes:"OCT", titulo:"Nombre", texto:"Descripción"}}
+     {horario:{...}}                   → tabla de exámenes por grupo (ver nota "examenes")
    ===================================================================== */
 const NOTAS = {
   examenes:{
     seccion:"Última hora", color:"vino", foto:"fotos/portada.jpg",
     titulo:"¡Adelanto de exámenes!",
-    subtitulo:"La coordinación académica recorre una semana el periodo de evaluaciones.",
+    subtitulo:"El segundo parcial se aplica del 22 de octubre al 4 de noviembre. Consulta el horario de tu grupo.",
     autor:"Equipo de Redacción 3°B", fecha:"14 de octubre de 2026",
     cuerpo:[
-      "Las evaluaciones del parcial se aplicarán una semana antes de lo previsto. Alumnos y maestros ya ajustan su planeación para cerrar los temas a tiempo.",
-      {h:"¿Qué materias cambian?"},
-      {lista:["Materia 1 — nueva fecha","Materia 2 — nueva fecha","Materia 3 — nueva fecha"]},
+      "Los exámenes del segundo parcial de preparatoria se aplican del jueves 22 de octubre al miércoles 4 de noviembre de 2026. Elige tu grupo para ver solo tus fechas.",
+      {h:"Horario por grupo"},
+      {horario:{
+        grupos:["1A", "1B", "3A", "3B", "5 EA", "5 CSH", "5 QB", "5 FM"],
+        filas:[
+        ["Jueves 22","Historia Universal Contemporánea / Biología","Historia Universal Contemporánea","Taller de Lectura y Redacción","Taller de Lectura y Redacción","Contabilidad Básica / Métodos de Investigación","Filosofía / Historia de la Cultura","Química / Ecología","Química / Métodos de Investigación"],
+        ["Viernes 23","Español","Español / Biología","Historia de México / Computación","Deportes","Administración","Historia Universal Contemporánea","Matemáticas","Matemáticas"],
+        ["Lunes 26","Ciencias Sociales","Ciencias Sociales / Deportes","Matemáticas / Filosofía","Matemáticas / Computación","Cálculo / Matemáticas Financieras","Etimologías / Deportes","Etimologías / Física","Física"],
+        ["Martes 27","Matemáticas","Matemáticas","Química","Química / Filosofía","Mercadotecnia / Temas Complementarios de Matemáticas","Taller de Lectura y Redacción / Temas Complementarios de Matemáticas","Ciencias de la Salud","Métodos Generales de Dibujo"],
+        ["Miércoles 28","Desarrollo de Habilidades del Pensamiento","Desarrollo de Habilidades del Pensamiento","Física / Francés","Francés / Física","Francés","Francés / Psicología","Francés","Francés"],
+        ["Jueves 29 · Día de Muertos","Computación","Computación","Psicología","Historia de México / Psicología","—","—","—","—"],
+        ["Viernes 30","Inglés","Inglés","Inglés","Inglés","Economía / Inglés","Sociología / Inglés","Inglés","Seminario de Historia de la Cultura / Inglés"],
+        ["Lunes 2 · Asueto","—","—","—","—","—","—","—","—"],
+        ["Martes 3","Deportes","","Deportes","","Derecho / Estadística","Derecho / Estadística","Estadística","Taller de Expresión Gráfica / Estadística"],
+        ["Miércoles 4","","","","","Deportes","","Microscopía / Deportes","Deportes"]
+        ]
+      }},
       {h:"Tips para estudiar en menos tiempo"},
       {lista:["Haz resúmenes por tema","Practica con exámenes pasados","Estudia en bloques de 25 minutos","Duerme bien la noche anterior"]},
       {cita:"Escribe aquí la opinión de un alumno o maestro.", de:"Alumno de 3°B"},
       "Agrega aquí el cierre de la nota."
+    ]
+  },
+  cascanueces:{
+    seccion:"Exclusiva", color:"vino", foto:"fotos/cascanueces.jpg",
+    titulo:"El Cascanueces regresa al Teatro de la Ciudad",
+    subtitulo:"Por segundo año consecutivo, el colegio presentará su propia adaptación del clásico navideño, con la participación de los alumnos de primaria.",
+    autor:"Equipo de Redacción 3°B", fecha:"Octubre 2026",
+    cuerpo:[
+      "Por segundo año consecutivo se realizará una adaptación de El Cascanueces en el Teatro de la Ciudad y contará con la participación de los alumnos de primaria.",
+      {h:"Artistas invitados"},
+      {evento:{dia:"3", mes:"DIC", titulo:"Jueves · Pláticas con bailarines y cantantes", texto:"Vendrán bailarines y cantantes externos a dar pláticas con motivo de la adaptación de El Cascanueces."}},
+      {h:"Lo que falta por saber"},
+      {lista:["Fecha y hora de la función: por confirmar","Grados de primaria que participan: por confirmar","Boletos: por confirmar"]},
+      "Consulta también la agenda completa de octubre a diciembre en Eventos Champagnat."
+    ]
+  },
+  eventos:{
+    seccion:"Eventos Champagnat", color:"oro", foto:"fotos/cascanueces.jpg",
+    titulo:"Eventos Champagnat",
+    subtitulo:"Exclusiva: El Cascanueces vuelve al Teatro de la Ciudad. Además, todo lo que viene de octubre a diciembre.",
+    autor:"Equipo de Redacción 3°B", fecha:"Octubre 2026",
+    cuerpo:[
+      {h:"Exclusiva"},
+      "Por segundo año consecutivo se realizará una adaptación de El Cascanueces en el Teatro de la Ciudad y contará con la participación de los alumnos de primaria.",
+      {h:"Octubre"},
+      {evento:{dia:"21", mes:"OCT", titulo:"Miércoles · Actividad por la paz", texto:"Los alumnos de la sección primaria estarán realizando una actividad relacionada con la unión de las Naciones Unidas y la paz."}},
+      {evento:{dia:"29", mes:"OCT", titulo:"Jueves · Festejo del Día de Muertos", texto:"Como cada año, se realizarán tumbas y altares. Y como parte de la festividad de Halloween, se contará con una casa del terror."}},
+      {h:"Noviembre"},
+      {evento:{dia:"4–8", mes:"NOV", titulo:"Torneo internacional Futbol Vallarta", texto:"Del 4 al 8 de noviembre se disputarán los partidos del torneo, en el que participará el selectivo de secundaria-preparatoria."}},
+      {evento:{dia:"11", mes:"NOV", titulo:"Miércoles · Conferencia del Día del Libro", texto:"Se realizará una conferencia para los alumnos de preparatoria acerca del Día del Libro."}},
+      {h:"Diciembre"},
+      {evento:{dia:"3", mes:"DIC", titulo:"Jueves · Pláticas sobre El Cascanueces", texto:"Vendrán bailarines y cantantes externos a dar pláticas con motivo de la adaptación de El Cascanueces."}},
+      {evento:{dia:"4", mes:"DIC", titulo:"Viernes · Fiesta navideña", texto:"Fiesta navideña exclusivamente para alumnos de secundaria y preparatoria."}},
+      {evento:{dia:"8", mes:"DIC", titulo:"Martes · Visita al Santuario de Guadalupe", texto:"Visita al Santuario de Guadalupe por los alumnos de 2° de secundaria."}}
+    ]
+  },
+  codingcup:{
+    seccion:"Programación", color:"vino", foto:"fotos/codingcup.jpg",
+    titulo:"Prepas entre universitarios: nuestro selectivo, en el top 10 de la CodingCup TecNM",
+    subtitulo:"Alumnos de preparatoria compitieron contra equipos universitarios de tecnológicos del estado y del país, y terminaron entre los diez mejores.",
+    autor:"Equipo de Redacción 3°B", fecha:"Octubre 2026",
+    cuerpo:[
+      "El selectivo de programación de la preparatoria participó en la CodingCup del Tecnológico Nacional de México (TecNM), una competencia en la que se enfrentó a equipos universitarios de institutos tecnológicos del estado y de todo el país.",
+      "Siendo alumnos de preparatoria, nuestros programadores compitieron de igual a igual contra estudiantes de nivel superior y terminaron dentro del top 10.",
+      {h:"El equipo"},
+      {lista:["Escribe aquí el nombre del integrante 1","Escribe aquí el nombre del integrante 2","Escribe aquí el nombre del integrante 3"]},
+      {cita:"Escribe aquí una frase de un integrante o del asesor.", de:"Nombre"}
+    ]
+  },
+  civico:{
+    seccion:"Primaria", color:"vino", foto:"fotos/civico.jpg",
+    titulo:"México tejido desde el corazón",
+    subtitulo:"Ceremonia cívica conmemorativa por el Día de la Nación Pluricultural.",
+    autor:"Equipo de Redacción 3°B", fecha:"12 de octubre de 2026",
+    cuerpo:[
+      "El día lunes 12 de octubre del 2026, los grupos de 6° grado de primaria estuvieron a cargo del acto cívico en honor a la bandera del mes vigente.",
+      "El tema central fue el Día de la Nación Pluricultural, una fecha para reconocer y recordar que México es mucho más que un territorio; es un país tejido con las manos, las voces y los saberes de sus pueblos indígenas.",
+      "Los grupos nos demostraron su compromiso, dedicación y organización al dirigir el programa de honores a la bandera, con algunos actos que representan la diversidad cultural a lo largo de los procesos históricos mexicanos.",
+      {foto:"fotos/honores2.jpg", pie:"Honores a la bandera del 12 de octubre"}
+    ]
+  },
+  crecer:{
+    seccion:"Primaria", color:"", foto:"fotos/crecer.jpg",
+    titulo:"Crecer es natural: aprendamos sobre nuestro cuerpo",
+    subtitulo:"Dos enfermeras visitan a los alumnos de cuarto, quinto y sexto de primaria para enseñarles que conocer nuestro cuerpo es el primer paso para aprender a respetarlo.",
+    autor:"Equipo de Redacción 3°B", fecha:"Octubre 2026",
+    cuerpo:[
+      {cita:"¿Y si hablar de la menstruación dejara de ser incómodo y se convirtiera en una oportunidad para aprender, comprender y apoyar a los demás?"},
+      "Con esta idea, dos enfermeras impartieron una plática a los alumnos de cuarto, quinto y sexto de primaria, donde compartieron información importante sobre uno de los procesos naturales del cuerpo humano.",
+      "Esta actividad permitió que los alumnos adquirieran nuevos conocimientos y comprendieran la importancia de hablar abiertamente sobre la salud. Además, contribuyó a fomentar un ambiente escolar de confianza, igualdad y respeto entre niñas y niños."
+    ]
+  },
+  retiro:{
+    seccion:"Primaria", color:"oro", foto:"fotos/retiro.jpg",
+    titulo:"Un viaje del corazón: nuestro retiro espiritual marista",
+    subtitulo:"Los alumnos de primaria vivieron su retiro espiritual siguiendo el ejemplo de San Marcelino Champagnat.",
+    autor:"Equipo de Redacción 3°B", fecha:"Octubre 2026",
+    cuerpo:[
+      "Los alumnos de primaria vivimos una experiencia inolvidable en nuestro retiro espiritual marista. Dejamos por un momento los libros y las aulas para encontrarnos con nosotros mismos, con la naturaleza y con Jesús, siguiendo el ejemplo de sencillez y amor de San Marcelino Champagnat."
     ]
   },
   idukay:{
@@ -159,4 +254,4 @@ const NOTAS = {
   }
 };
 /* Orden en que se navega con los botones Anterior / Siguiente */
-const ORDEN = ["examenes","idukay","direccion","redaccion","republica","muertos","cafeteria","satira","servicio","conadeip","conarte"];
+const ORDEN = ["examenes","cascanueces","eventos","idukay","direccion","redaccion","republica","muertos","cafeteria","satira","servicio","conadeip","conarte","codingcup","civico","crecer","retiro"];

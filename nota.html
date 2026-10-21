@@ -55,12 +55,38 @@ const app=$('#app');
 
 const foto=(src,ph,clase='',pie='')=>!src?`<figure class="foto ${clase} sinfoto"><span class="marca-agua">${esc(ph)}</span></figure>`:`<figure class="foto ${clase}" data-src="${src}" data-ph="${esc(ph)}">${pie?`<figcaption style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.6);color:#fff;font-size:.85rem;padding:8px 12px;z-index:2">${esc(pie)}</figcaption>`:''}</figure>`;
 
+function materia(t){
+  if(!t) return '';
+  if(t==='—') return '<span class="hz-no">Sin examen</span>';
+  const [a,b2]=t.split(' / ');
+  return `<span class="hz-m">${esc(a)}</span>${b2?`<span class="hz-m2">+ ${esc(b2)}</span>`:''}`;
+}
+function horario(h){
+  const chips=['Todos',...h.grupos].map((g,i)=>`<button type="button" class="${i?'':'on'}" data-g="${i-1}">${esc(g)}</button>`).join('');
+  const tabla=`<div class="hz-scroll"><table class="hz-tabla"><thead><tr><th>Día</th>${h.grupos.map(g=>`<th>${esc(g)}</th>`).join('')}</tr></thead><tbody>${h.filas.map(f=>`<tr class="${f.slice(1).every(c=>c==='—')?'hz-libre':''}"><th>${esc(f[0])}</th>${f.slice(1).map(c=>`<td>${materia(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  return `<div class="hz" data-hz='${esc(JSON.stringify(h)).replace(/'/g,"&#39;")}'><div class="filtros hz-chips">${chips}</div><div class="hz-vista">${tabla}</div><p class="hz-nota">Desliza la tabla hacia los lados para ver todos los grupos.</p></div>`;
+}
+function activarHorarios(){
+  $$('.hz').forEach(box=>{
+    const h=JSON.parse(box.dataset.hz), vista=box.querySelector('.hz-vista'), tabla=vista.innerHTML, nota=box.querySelector('.hz-nota');
+    box.querySelectorAll('.hz-chips button').forEach(b=>b.onclick=()=>{
+      box.querySelectorAll('.hz-chips button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+      const g=+b.dataset.g;
+      if(g<0){vista.innerHTML=tabla;nota.hidden=false;return}
+      nota.hidden=true;
+      vista.innerHTML=`<div class="hz-lista">${h.filas.map(f=>{const c=f[g+1];const [d,extra]=f[0].split(' · ');return `<div class="evento ${!c||c==='—'?'hz-vacio':''}"><div class="dia">${esc(d.split(' ')[1]||'')}<small>${esc(d.split(' ')[0].slice(0,3).toUpperCase())}</small></div><div>${c&&c!=='—'?materia(c):'<span class="hz-no">'+(extra||'Sin examen')+'</span>'}</div></div>`}).join('')}</div>`;
+    });
+  });
+}
+
 function bloque(b){
   if(typeof b==='string') return `<p>${esc(b)}</p>`;
   if(b.h) return `<h2>${esc(b.h)}</h2>`;
   if(b.cita) return `<blockquote>“${esc(b.cita)}”${b.de?`<div style="font:600 .85rem Inter;color:var(--oro);margin-top:8px">— ${esc(b.de)}</div>`:''}</blockquote>`;
   if(b.lista) return `<ul>${b.lista.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>`;
   if(b.foto) return foto(b.foto,'Imagen','',b.pie);
+  if(b.evento){const e=b.evento;return `<div class="evento ev-nota"><div class="dia">${esc(e.dia)}<small>${esc(e.mes)}</small></div><div><b>${esc(e.titulo)}</b><div class="p">${esc(e.texto||'')}</div></div></div>`}
+  if(b.horario) return horario(b.horario);
   return '';
 }
 
@@ -103,6 +129,8 @@ if(!n){
   <div class="sec">Sigue leyendo</div>
   <div class="mas">${otras.map(k=>`<a class="card" href="nota.html?id=${k}">${foto(NOTAS[k].foto,NOTAS[k].seccion,NOTAS[k].color)}<span class="etiqueta" style="margin-top:12px">${esc(NOTAS[k].seccion)}</span><h3>${esc(NOTAS[k].titulo)}</h3></a>`).join('')}</div>`;
 }
+
+activarHorarios();
 
 // Fotos: si no existe el archivo queda la etiqueta
 $$('[data-src]').forEach(el=>{

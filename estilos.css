@@ -1,3 +1,4 @@
+
 :root{
   --azul:#1c1f6b; --oro:#d6bf7e; --llama:#f7c21a; --naranja:#e8841c; --vino:#8a1c1c; --morado:#6d2a72;
   --fuego:linear-gradient(90deg,var(--llama),var(--naranja),var(--vino));
@@ -275,3 +276,43 @@ body.saliendo{opacity:0;transform:translateY(-8px);transition:.3s}
 @keyframes sella{from{transform:scale(2.2);opacity:0}to{transform:none;opacity:1}}
 @media (max-width:900px){.ch-grid{grid-template-columns:1fr}}
 .ch-caja input[type=text]::placeholder,.ch-caja textarea::placeholder{color:rgba(255,255,255,.5)}
+
+/* Primaria: tres notas en una tarjeta */
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.mini{display:flex;flex-direction:column;min-width:0}
+.mini .leer{margin-top:auto;align-self:flex-start}
+.mini .p{margin-bottom:14px}
+@media (max-width:900px){.tri{grid-template-columns:1fr}}
+
+/* Eventos dentro de una nota */
+.articulo .ev-nota{border-bottom:1px solid var(--borde);padding:14px 0}
+.articulo .ev-nota .dia{min-width:64px}
+.articulo .ev-nota .p{font-size:.95rem;margin-top:4px}
+
+/* Horario de exámenes */
+.hz{margin:10px 0 26px}
+.hz-chips{margin-bottom:14px}
+.hz-scroll{overflow-x:auto;border:1px solid var(--borde);border-radius:14px;-webkit-overflow-scrolling:touch}
+.hz-tabla{border-collapse:collapse;min-width:980px;font-size:.82rem;width:100%}
+.hz-tabla th,.hz-tabla td{padding:9px 10px;border-bottom:1px solid var(--borde);border-right:1px solid var(--borde);vertical-align:top;text-align:left}
+.hz-tabla thead th{background:var(--azul);color:#fff;font-weight:800}
+.hz-tabla tbody th{background:var(--bg2);color:var(--titulo);white-space:nowrap;position:sticky;left:0;z-index:1;font-weight:800}
+.hz-tabla tr.hz-libre td,.hz-tabla tr.hz-libre th{opacity:.55}
+.hz-m{display:block;font-weight:700;color:var(--txt)}
+.hz-m2{display:block;color:var(--oro);font-size:.92em;margin-top:2px}
+.hz-no{color:var(--suave);font-style:italic}
+.hz-nota{font-size:.8rem;color:var(--suave);margin-top:8px}
+.hz-lista .evento{padding:12px 0}
+.hz-lista .hz-vacio{opacity:.55}
+.articulo .hz ul{margin:0}
+
+/* Nota principal: foto y texto lado a lado */
+.principal{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:start}
+.principal .foto{aspect-ratio:4/3}
+.principal-txt{min-width:0}
+.principal-txt h3{font-size:1.7rem;margin-top:10px}
+.principal-txt .p{margin-bottom:10px}
+.panel .etiqueta{margin-bottom:2px}
+@media (max-width:700px){.principal{grid-template-columns:1fr}}
+.tabs{max-width:100%;flex-wrap:wrap;border-radius:20px}
+@media (max-width:500px){.tabs button{padding:8px 11px;font-size:.8rem}}
